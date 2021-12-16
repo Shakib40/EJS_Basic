@@ -1,0 +1,6 @@
+npm init-y
+npm i express mongoose
+
+npm i multer
+
+npm i ejs

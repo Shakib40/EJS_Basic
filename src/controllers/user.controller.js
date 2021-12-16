@@ -3,15 +3,8 @@ const User = require("../models/user.model");
 const router = express.Router();
 const upload  = require('../middlewares/fileUpload');
 
-const express = require("express");
-
 const fs = require("fs");
 
-const router = express.Router();
-
-const User = require("../models/user.model");
-
-const upload = require("../middlewares/upload");
 
 router.get("/", async(req, res) => {
     try {
