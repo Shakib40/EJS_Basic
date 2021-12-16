@@ -9,41 +9,18 @@ router.get('/', async function (req, res) {
     const products = await Products.find().lean().exec();
 
     return res.render('products/all' , {
-        products
+        products,
     });
 });
 
+router.get('/:id', async function (req, res) {
+    const product = await Products.findById(req.params.id).lean().exec();
 
-// router.post('/' , upload.single("productImages"), async (req, res) => {
-    
-//     try{
-//         const product = await Products.create({
-//             name: req.body.name,
-//             price: req.body.price,
-//             image_urls: req.file.path,
-//         });
-//         return res.status(201).json( { product } );
-//     }
-//     catch(err){
-//         return res.status(500).json({ status : "Failed" , message : err.message }); 
-//     }
-// })
+    return res.render('products/single' , {
+        product,
+    });
+});
 
-// router.post('/multiple' , upload.any("productImages"), async (req, res) => {
-//     const filePaths = req.files.map(file => file.path);
-
-//     try{
-//         const product = await Products.create({
-//             name: req.body.name,
-//             price: req.body.price,
-//             image_urls: filePaths,
-//         });
-//         return res.status(201).json( { product } );
-//     }
-//     catch(err){
-//         return res.status(500).json({ status : "Failed" , message : err.message }); 
-//     }
-// })
 
 module.exports = router;
 

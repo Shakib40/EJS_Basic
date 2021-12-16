@@ -7,14 +7,18 @@
 </head>
 <body>
     
-   <% products.forEach( product => { %>
-       <p onclick="clickedProduct(`<%= JSON.stringify(product) %>`)">
-        <%= product.name %> 
-       </p>
-       <p><%= product.price %> </p>
-       <p><%= product.image_urls %> </p>
+    <% products.forEach( product => { %>
+        <p onclick="clickedProduct(`<%= JSON.stringify(product) %>`)">
+            <%= product.name %> 
+        </p>
+        <p><%= product.price %> </p>
+        <p><%= product.image_urls %> </p>
+        
+        <p>
+           <a href="products/<%= products._id%>">View Details</a> 
+        </p>
 
-   <% }) %>
+    <% }) %>
 
 <script src="js/products.js"></script>  
 
